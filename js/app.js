@@ -84,7 +84,7 @@ $(document).ready(function(){
     var draw = location.search.replace('?draw=','');
 
 
-    $.getJSON( "http://data.ny.gov/resource/d6yy-54nr.json", function( data ) {
+    $.getJSON( "https://data.ny.gov/resource/d6yy-54nr.json", function( data ) {
 
       console.log(data[draw]);
 
