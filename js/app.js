@@ -77,11 +77,18 @@ var uniform = {
 $(document).ready(function(){
     $(document).foundation();
 
+    if(!location.search) {
+      location.search = '?draw=0';
+    }
+
+    var draw = location.search.replace('?draw=','');
+
+
     $.getJSON( "http://data.ny.gov/resource/d6yy-54nr.json", function( data ) {
 
-      console.log(data[0]);
+      console.log(data[draw]);
 
-      var winningNums = data[0].winning_numbers;
+      var winningNums = data[draw].winning_numbers;
 
       var nums = winningNums.split(" ");
             console.log(nums);
@@ -94,12 +101,21 @@ $(document).ready(function(){
       });
 
       $('#numbers').append(items);
+      $('.draw-date').append(data[draw].draw_date.replace('T00:00:00',''))
 
+
+      $('#older').click(function(){
+        draw++;
+        location.search = '?draw=' + draw;
+      } )
     // var items = [];
     // $.each( data, function( key, val ) {
     //   console.log(val)
     //   items.push( "<li id='" + key + "'>" + val + "</li>" );
     // });
+
+
+
    
   });
 
