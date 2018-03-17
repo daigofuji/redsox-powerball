@@ -1,0 +1,13 @@
+name : Red Sox Powerball
+brand : Red Sox Powerball
+description : Moneyball with the local nine! My 2018 Baseball Hack Day submission
+keyword : 
+url : http://daigofuji.github.io/redsox-powerball/
+email : daigo@daigofujiwara.com
+twitter : DaigoFuji
+github : DaigoFuji
+author : Daigo Fujiwara
+year : 2018
+markdown : kramdown
+exclude :
+  - node_modules
