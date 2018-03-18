@@ -97,7 +97,7 @@ $(document).ready(function(){
       $.each( nums, function( key, val ) {
 
         console.log(val);
-        items.push( "<li id='" + key + "'><span class='num'>"+val+"</span> <span class='name'>"+ uniform[val][0] + "</span> <span class='years'>"+ uniform[val][1] +"</li>" );
+        items.push( "<li id='num" + key + "'><span class='num'>"+val+"</span> <span class='name'>"+ uniform[val][0] + "</span> <span class='years'>"+ uniform[val][1] +"</li>" );
       });
 
       $('#numbers').append(items);
