@@ -70,10 +70,6 @@ var uniform = {
   "69":["Nobody has worn 69!",""]
 };
 
-
-
-
-
 $(document).ready(function(){
     $(document).foundation();
 
@@ -83,42 +79,39 @@ $(document).ready(function(){
 
     var draw = location.search.replace('?draw=','');
 
-
-    $.getJSON( "https://data.ny.gov/resource/d6yy-54nr.json", function( data ) {
-
-      console.log(data[draw]);
-
+    function powerball(data, draw) {
       var winningNums = data[draw].winning_numbers;
 
       var nums = winningNums.split(" ");
-            console.log(nums);
-      
+
       var items = [];
+
       $.each( nums, function( key, val ) {
 
-        console.log(val);
         items.push( "<li id='num" + key + "'><span class='num'>"+val+"</span> <span class='name'>"+ uniform[val][0] + "</span> <span class='years'>"+ uniform[val][1] +"</li>" );
       });
 
-      $('#numbers').append(items);
-      $('.draw-date').append(data[draw].draw_date.replace('T00:00:00',''))
+      $('#numbers').empty().append(items);
+      $('.draw-date').empty().append(data[draw].draw_date.replace('T00:00:00',''))
 
+    }
 
-      $('#older').click(function(){
+    $.getJSON( "https://data.ny.gov/resource/d6yy-54nr.json", function( data ) {
+
+      powerball(data, draw);
+
+      $('#older').click(function(ev){
+        ev.preventDefault();
         draw++;
-        location.search = '?draw=' + draw;
-      } )
-    // var items = [];
-    // $.each( data, function( key, val ) {
-    //   console.log(val)
-    //   items.push( "<li id='" + key + "'>" + val + "</li>" );
-    // });
+        powerball(data, draw);
 
+        //location.search = '?draw=' + draw;
+        if (window.history.replaceState) {
+           //prevents browser from storing history with each change:
+           window.history.replaceState(null, null, '?draw=' + draw);
+        }
+      })
 
-
-   
   });
-
-
 
 });
