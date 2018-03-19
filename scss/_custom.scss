@@ -30,23 +30,34 @@ h1, h2, h3, h4, h5, h6 {
 
   .title-bar-right {
     flex: 2 1 0px;
+    a {
+      color: $dark-gray;
+    }
   }
 
   .title-bar-title {
     font-weight: 800;
+    .title-text {
+      color: $medium-gray;
+      span {
+        color: $primary-color;
+      }
+    }
   }
 }
 
 .off-canvas-content {
-  background: #f3fab6;
+  background: #aad4b4;
 }
 
 .draw-date {
   font-weight: 600;
 }
+
 #numbers {
   list-style-type: none;
   margin-bottom: 75px;
+
   li {
     margin: 10px;
 
@@ -60,17 +71,18 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 60px; 
     font-weight:800;
     font-size: 3em;
-    color: #cc1111;
+    color: $primary-color;
     text-align: center;
-  }
-  .name {
-    font-size: 2em;
-    padding: 0 10px;
-  }
-  .years {
-    color: #999;  font-size: 1.5em;
-
-  }   
+    box-shadow: 0 8px 6px -6px $dark-gray;
+    }
+    .name {
+      font-size: 2em;
+      padding: 0 10px;
+    }
+    .years {
+      color: $dark-gray;
+      font-size: 1.5em;
+    }   
   }
   
   li#num5 {
@@ -80,3 +92,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.site-footer {
+  padding-bottom: 4em;
+  
+  a {
+    color: $dark-gray;
+  }
+}
